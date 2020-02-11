@@ -8,7 +8,7 @@ from flask_swagger import swagger
 from flask_cors import CORS
 from utils import APIException, generate_sitemap
 from models import db
-#from models import Person
+from models import Persons
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -31,11 +31,35 @@ def sitemap():
 @app.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
 
-    response_body = {
-        "hello": "world"
-    }
+    
 
-    return jsonify(response_body), 200
+    if request.method =='POST':
+
+        json - request.get_()
+
+        print(json['name'])
+        print(json['age'])
+
+        return jsonify(json['age'])
+
+    if request.method == 'GET':
+        return 'You used a GET method'
+
+        
+@app.route('/account', methods=['POST'])
+def handle_account():
+    json = request.get_json()
+    user = Persons(
+        username = json['username'],
+        email = json['email'],
+        password = json['password']
+    )
+    db.session.add(user)
+    db.session.commit()
+
+    return "user added"
+    
+
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
