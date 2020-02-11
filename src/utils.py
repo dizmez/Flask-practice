@@ -33,5 +33,5 @@ def generate_sitemap(app):
     return """
         <div style="text-align: center;">
         <img src='https://i.gifer.com/ZBO7.gif' />
-        <h1>Hello Anthony!!</h1>
+        <h1>What's up Tony!!</h1>
         This is your api home, remember to specify a real endpoint path like: <ul style="text-align: left;">"""+links_html+"</ul></div>"
