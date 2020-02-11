@@ -35,7 +35,7 @@ def handle_hello():
 
     if request.method =='POST':
 
-        json - request.get_()
+        json = request.get_json()
 
         print(json['name'])
         print(json['age'])
@@ -45,12 +45,16 @@ def handle_hello():
     if request.method == 'GET':
         return 'You used a GET method'
 
+@app.route('/practice', methods=['POST','GET'])
+def handle_pract():
+    return "Just a practice"
+
         
 @app.route('/account', methods=['POST'])
 def handle_account():
     json = request.get_json()
     user = Persons(
-        username = json['username'],
+        # username = json['username'],
         email = json['email'],
         password = json['password']
     )
@@ -58,7 +62,20 @@ def handle_account():
     db.session.commit()
 
     return "user added"
+
+@app.route('/user', methods=['POST' ])
+def handle_nada():
     
+    json = request.get_json()
+    return json
+    
+@app.route('/login', methods=['POST'])
+def handle_logins():
+    json = request.get_json()
+    if json['username'] == 'justusmays' and json['password'] == 'Curly23':
+        return 'welcome back'
+    else:
+        return 'invalid information'
 
 
 # this only runs if `$ python src/main.py` is executed
