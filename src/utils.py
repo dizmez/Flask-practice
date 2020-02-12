@@ -31,7 +31,8 @@ def generate_sitemap(app):
 
     links_html = "".join(["<li><a href='" + y + "'>" + y + "</a></li>" for y in links])
     return """
+        <body style="background-color: lavender;">
         <div style="text-align: center;">
         <img src='https://i.gifer.com/ZBO7.gif' />
         <h1>What's up Tony!!</h1>
-        This is your api home, remember to specify a real endpoint path like: <ul style="text-align: left;">"""+links_html+"</ul></div>"
+        This is your api home, remember to specify a real endpoint path like: <ul style="text-align: left;">"""+links_html+"</ul></div></body>"
